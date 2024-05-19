@@ -22,7 +22,7 @@ def load_model():
 
 # Main function
 def main():
-    st.title("Weather Predictor JED CARLO")
+    st.title("Weather Predictor")
     model = load_model()
     
     if model is None:
