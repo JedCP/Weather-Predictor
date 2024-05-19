@@ -30,7 +30,7 @@ uploaded_file = st.file_uploader("Upload Image", type=["jpg", "jpeg", "png"])
 
 def import_and_predict(image_data, model):
 if model is None:
-    st.error("Model is not loaded.")
+        st.error("Model is not loaded.")
     return None
 
     size = (150, 150)
