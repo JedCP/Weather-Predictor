@@ -5,14 +5,12 @@ import tensorflow as tf
 
 st.markdown(
     
-    <style>
     body {
         background-image: url('path_to_your_image.jpg');
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
     }
-    </style>
     ,
     unsafe_allow_html=True
 )
