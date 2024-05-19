@@ -17,26 +17,38 @@ def load_model():
         model = tf.keras.models.load_model("model_Weather.h5")
         st.write("Model loaded successfully")
         return model
-        
+
+    except Exception as e:
+        st.error(f"Error loading model: {e}")
+        return None
+
 model = load_model()
-    
+
 st.title("Weather Predictor")
 st.write("Upload an image to classify the weather conditions.")
 uploaded_file = st.file_uploader("Upload Image", type=["jpg", "jpeg", "png"])
-    
+
 def import_and_predict(image_data, model):
-    if model is None:
+if model is None:
         st.error("Model is not loaded.")
         return None
-    
+
     size = (150, 150)
     image = ImageOps.fit(image_data, size, Image.LANCZOS)
     img_array = np.asarray(image)
     img_array = img_array[np.newaxis, ...]  # Add batch dimension
     img_array = img_array / 255.0  # Normalize to [0, 1] range
 
-if model is None:
-        st.error("Model could not be loaded. Please check the model file.")
+else:
+    image = Image.open(file)
+    st.image(image, use_column_width=True)
+    prediction = import_and_predict(image, model)
+    class_labels = ['Cloudy', 'Rain', 'Shine', 'Sunrise']
+    predicted_class_index = np.argmax(prediction)
+    predicted_class_label = class_labels[predicted_class_index]
+    prediction = model.predict(img_array)  # Example prediction
+
+    return prediction
 
 def main():
     if uploaded_file is not None:
@@ -46,5 +58,4 @@ def main():
         if st.button("Predict"):
             with st.spinner('Predicting...'):
                 prediction = import_and_predict(image, model)
-                if prediction is not None:
-                    st.success(f'Prediction: {prediction}')
+                st.success(f'Prediction: {prediction}')
