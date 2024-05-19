@@ -29,6 +29,7 @@ def main():
     if model is None:
         st.stop()
     
+    # File uploader with drag-and-drop functionality
     uploaded_file = st.file_uploader("Drag and drop or click to upload an image...", type=["jpg", "jpeg", "png"])
     
     if uploaded_file is not None:
