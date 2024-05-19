@@ -3,9 +3,18 @@ from PIL import Image, ImageOps
 import streamlit as st
 import tensorflow as tf
 
-# Set page configuration
-import streamlit as st
-
+st.markdown(
+    
+    <style>
+    body {
+        background-image: url('path_to_your_image.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
 # Set page configuration
 st.set_page_config(
     page_title="Weather Classification Proficiency Test",
