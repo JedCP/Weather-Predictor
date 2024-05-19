@@ -22,6 +22,7 @@ def load_model():
 
 def main():
     st.title("Weather Predictor")
+    st.markdown('<div class="header main">Final Examination: Weather Prediction System</div>', unsafe_allow_html=True)
     st.write("Upload an image to classify the weather conditions.")
     
     model = load_model()
