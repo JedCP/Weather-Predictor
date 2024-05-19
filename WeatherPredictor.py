@@ -41,8 +41,8 @@ if uploaded_file is None:
 else:
     image = Image.open(uploaded_file)
     st.image(image, use_column_width=True)
-    prediction = import_and_predict(image, model)
+    predict = import_and_predict(image, model)
     class_labels = ['Cloudy', 'Rain', 'Shine', 'Sunrise']
-    predicted_class_index = np.argmax(prediction)
+    predicted_class_index = np.argmax(predict)
     predicted_class_label = class_labels[predicted_class_index]
     st.success(f'Prediction: {predicted_class_label}')
