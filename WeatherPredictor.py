@@ -32,7 +32,7 @@ def import_and_predict(image_data, model):
     img_array = img_array[np.newaxis, ...]  # Add batch dimension
     img_array = img_array / 255.0  # Normalize to [0, 1] range
 
-    so tangg
+
 
 def main():
     st.title("Weather Predictor")
