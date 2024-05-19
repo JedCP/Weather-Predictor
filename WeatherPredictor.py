@@ -20,40 +20,13 @@ def load_model():
         st.error(f"Error loading model: {e}")
         return None
 
-def import_and_predict(image_data, model):
-    size = (150, 150)
-    image = ImageOps.fit(image_data, size, Image.LANCZOS)
-    img_array = np.asarray(image)
-    img_array = img_array[np.newaxis, ...]  # Add batch dimension
-    img_array = img_array / 255.0  # Normalize to [0, 1] range
-
-    prediction = model.predict(img_array)
-    return prediction
-
 def main():
     st.title("Weather Predictor")
     st.write("Upload an image to classify the weather conditions.")
     
-    model = load_model()
+
     
-    if model is None:
-        st.stop()
-    
-    st.write("## Upload an Image")
-    st.write("Drag and drop an image file below, or click to select a file.")
-    
-    file = st.file_uploader("", type=["jpg", "jpeg", "png"])
-    
-    if file is not None:
-        image = Image.open(file)
-        st.image(image, caption='Uploaded Image.', use_column_width=True)
-        st.write("")
-        
-        with st.spinner('Processing Image...'):
-            prediction = import_and_predict(image, model)
-            class_labels = ['Cloudy', 'Rain', 'Shine', 'Sunrise']
-            predicted_class_index = np.argmax(prediction)
-            predicted_class_label = class_labels[predicted_class_index]
+
 
             st.success(f'Prediction: {predicted_class_label}')
 
