@@ -1,4 +1,4 @@
-mport numpy as np
+import numpy as np
 from PIL import Image, ImageOps
 import streamlit as st
 import tensorflow as tf
