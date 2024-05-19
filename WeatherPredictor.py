@@ -20,9 +20,18 @@ def load_model():
         st.error(f"Error loading model: {e}")
         return None
 
+def import_and_predict(image_data, model):
+    size = (150, 150)
+    image = ImageOps.fit(image_data, size, Image.LANCZOS)
+    img_array = np.asarray(image)
+    img_array = img_array[np.newaxis, ...]  # Add batch dimension
+    img_array = img_array / 255.0  # Normalize to [0, 1] range
+
+    prediction = model.predict(img_array)
+    return prediction
+
 def main():
     st.title("Weather Predictor")
-    st.markdown('<div class="header main">Final Examination: Weather Prediction System</div>', unsafe_allow_html=True)
     st.write("Upload an image to classify the weather conditions.")
     
     model = load_model()
@@ -30,30 +39,23 @@ def main():
     if model is None:
         st.stop()
     
-    # File uploader with drag-and-drop functionality
-    uploaded_file = st.file_uploader("Drag and drop or click to upload an image...", type=["jpg", "jpeg", "png"])
+    st.write("## Upload an Image")
+    st.write("Drag and drop an image file below, or click to select a file.")
     
-    if uploaded_file is not None:
-        image = Image.open(uploaded_file)
+    file = st.file_uploader("", type=["jpg", "jpeg", "png"])
+    
+    if file is not None:
+        image = Image.open(file)
         st.image(image, caption='Uploaded Image.', use_column_width=True)
         st.write("")
         
         with st.spinner('Processing Image...'):
-            # Preprocess the image
-            image = ImageOps.fit(image, (150, 150), Image.LANCZOS)
-            img_array = np.asarray(image)
-            img_array = np.expand_dims(img_array, axis=0)  # Add batch dimension
+            prediction = import_and_predict(image, model)
+            class_labels = ['Cloudy', 'Rain', 'Shine', 'Sunrise']
+            predicted_class_index = np.argmax(prediction)
+            predicted_class_label = class_labels[predicted_class_index]
 
-            # Predict the class of the image
-            try:
-                with st.spinner('Classifying...'):
-                    predictions = model.predict(img_array)
-                    predicted_class = np.argmax(predictions, axis=1)[0]
-
-                    st.success("Classification Successful!")
-                    st.write(f"Predicted Class: {predicted_class}")
-            except Exception as e:
-                st.error(f"Error making prediction: {e}")
+            st.success(f'Prediction: {predicted_class_label}')
 
 if __name__ == '__main__':
     main()
