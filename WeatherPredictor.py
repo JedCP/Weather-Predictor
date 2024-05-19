@@ -29,9 +29,9 @@ st.write("Upload an image to classify the weather conditions.")
 uploaded_file = st.file_uploader("Upload Image", type=["jpg", "jpeg", "png"])
 
 def import_and_predict(image_data, model):
-if model is None:
+    if model is None:
         st.error("Model is not loaded.")
-    return None
+        return None
 
     size = (150, 150)
     image = ImageOps.fit(image_data, size, Image.LANCZOS)
