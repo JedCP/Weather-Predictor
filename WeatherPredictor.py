@@ -12,7 +12,7 @@ st.set_page_config(
 # Add custom CSS to set the page background
 st.markdown(
     
-    <style>
+    
     body {{
         background-image: url('https://www.google.com/search?sca_esv=345267d81bec8f30&q=weather+images+background&tbm=isch&source=lnms&prmd=ivsnmbtz&sa=X&sqi=2&ved=2ahUKEwifn8jG-pmGAxWUhlYBHV_VAMEQ0pQJegQIERAB&biw=1920&bih=963&dpr=1#imgrc=9W1kB7WvoHSFsM');
         background-size: cover;
