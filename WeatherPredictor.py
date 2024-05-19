@@ -1,4 +1,4 @@
-import numpy as np
+mport numpy as np
 from PIL import Image, ImageOps
 import streamlit as st
 import tensorflow as tf
@@ -34,7 +34,7 @@ def import_and_predict(image_data, model):
 
 
 
-def main():
+def import_and_predict():
     st.title("Weather Predictor")
     st.write("Upload an image to classify the weather conditions.")
     
