@@ -5,7 +5,7 @@ import tensorflow as tf
 
 # Set page configuration
 st.set_page_config(
-    page_title="Weather Predictor",
+    page_title="Weather Predictor JED",
     layout="centered",
     initial_sidebar_state="expanded"
 )
