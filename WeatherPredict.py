@@ -4,7 +4,7 @@ import streamlit as st
 import tensorflow as tf
 
 st.set_page_config(
-	page_title= "Weather Predictor";
+	page_title= "Weather-Predictor";
 	)
 
 @st.cache.resource
