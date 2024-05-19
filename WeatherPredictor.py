@@ -39,8 +39,8 @@ def import_and_predict(image_data, model):
 if uploaded_file is None:
     st.text("Please upload an image file")
 else:
-    image_data = Image.open(uploaded_file)
-    st.image(image_data, use_column_width=True)
+    image = Image.open(uploaded_file)
+    st.image(image, use_column_width=True)
     prediction = import_and_predict(image_data, model)
     class_labels = ['Cloudy', 'Rain', 'Shine', 'Sunrise']
     predicted_class_index = np.argmax(prediction)
