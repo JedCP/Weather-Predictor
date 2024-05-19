@@ -4,8 +4,10 @@ import streamlit as st
 import tensorflow as tf
 
 st.set_page_config(
-	page_title= "Weather-Predictor";
-	)
+	page_title= "Weather-Predictor",
+	layout="centered",
+	inital_sidebar_state="expanded"
+)
 
 @st.cache.resource
 def load_model():
