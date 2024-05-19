@@ -32,22 +32,11 @@ def import_and_predict(image_data, model):
     img_array = img_array[np.newaxis, ...]  # Add batch dimension
     img_array = img_array / 255.0  # Normalize to [0, 1] range
 
-    try:
-        prediction = model.predict(img_array)
-        class_labels = ['Cloudy', 'Rain', 'Shine', 'Sunrise']
-        predicted_class_index = np.argmax(prediction)
-        predicted_class_label = class_labels[predicted_class_index]
-        st.write(f'Prediction made: {predicted_class_label}')
-        return predicted_class_label
-    except Exception as e:
-        st.error(f"Error making prediction: {e}")
-        return None
+    so tangg
 
 def main():
     st.title("Weather Predictor")
     st.write("Upload an image to classify the weather conditions.")
-    
-    model = load_model()
     
     if model is None:
         st.error("Model could not be loaded. Please check the model file.")
@@ -64,6 +53,3 @@ def main():
                 prediction = import_and_predict(image, model)
                 if prediction is not None:
                     st.success(f'Prediction: {prediction}')
-
-if __name__ == '__main__':
-    main()
