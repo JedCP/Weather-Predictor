@@ -33,7 +33,7 @@ def import_and_predict(image_data, model):
     img_array = np.asarray(image)
     img_array = img_array[np.newaxis, ...]  # Add batch dimension
     img_array = img_array / 255.0  # Normalize to [0, 1] range
-    predict = model.predict(img_array)  # Example prediction
+    prediction = model.prediction(img_array)  # Example prediction
     return predict
 
 if uploaded_file is None:
