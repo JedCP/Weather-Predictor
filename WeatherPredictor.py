@@ -5,7 +5,7 @@ import tensorflow as tf
 
 # Set page configuration
 st.set_page_config(
-    page_title="Weather Classification Proficiency Test",
+    page_title="Weather Classification Proficiency App",
     layout="centered",
     initial_sidebar_state="expanded"
 )
@@ -23,7 +23,7 @@ def load_model():
 
 model = load_model()
 
-st.title("Weather Classification Proficiency Test")
+st.title("Weather Classification Proficiency App")
 st.write("Pernecita, Jed Carlo | Garcia, Christian")
 st.write("Final Exam")
 st.write("Upload an image to classify the weather conditions.")
