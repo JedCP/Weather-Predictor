@@ -15,7 +15,7 @@ st.set_page_config(
 
 # Add custom CSS styling
 st.markdown(
-    """
+    
     <style>
     /* Add your custom CSS styling here */
     body {
