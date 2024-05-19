@@ -28,7 +28,7 @@ st.write("Upload an image to classify the weather conditions.")
 uploaded_file = st.file_uploader("Upload Image", type=["jpg", "jpeg", "png"])
 
 def import_and_predict(image_data, model):
-    size = (150, 150)
+    size = (244, 244)
     image = ImageOps.fit(image_data, size, Image.LANCZOS)
     img_array = np.asarray(image)
     img_array = img_array[np.newaxis, ...]  # Add batch dimension
