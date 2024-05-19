@@ -8,7 +8,7 @@ import streamlit as st
 
 # Set page configuration
 st.set_page_config(
-    page_title="Weather Predictor",
+    page_title="Weather Classification Proficiency Test",
     layout="centered",
     initial_sidebar_state="expanded"
 )
@@ -27,7 +27,7 @@ def load_model():
 
 model = load_model()
 
-st.title("Weather Predictor")
+st.title("Weather Classification Proficiency Test")
 st.write("Pernecita, Jed Carlo | Garcia, Christian")
 st.write("Final Exam")
 st.write("Upload an image to classify the weather conditions.")
