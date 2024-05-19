@@ -13,7 +13,7 @@ st.markdown(
         background-attachment: fixed;
     }
     </style>
-    """,
+    ,
     unsafe_allow_html=True
 # Set page configuration
 st.set_page_config(
