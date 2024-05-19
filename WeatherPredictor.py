@@ -21,6 +21,9 @@ def load_model():
         return None
 
 def import_and_predict(image_data, model):
+    if model is None:
+        return None
+    
     size = (150, 150)
     image = ImageOps.fit(image_data, size, Image.LANCZOS)
     img_array = np.asarray(image)
