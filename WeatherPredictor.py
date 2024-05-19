@@ -13,59 +13,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Add custom CSS styling
-st.markdown(
-    
-    <style>
-    /* Add your custom CSS styling here */
-    body {
-        background-color: #f5f5f5;
-        font-family: Arial, sans-serif;
-    }
-
-    .stApp {
-        max-width: 1px;
-        padding: 1rem;
-    }
-
-    .sidebar .sidebar-content {
-        background-color: #ffffff;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-        border-radius: 5px;
-        padding: 1rem;
-    }
-
-    .sidebar .sidebar-content .block-container {
-        margin-bottom: 1rem;
-    }
-
-    .block-container label {
-        font-weight: bold;
-        margin-bottom: 0.5rem;
-    }
-
-    .block-container input[type="text"],
-    .block-container input[type="number"],
-    .block-container select {
-        width: 100%;
-        padding: 0.5rem;
-        border: 1px solid #cccccc;
-        border-radius: 3px;
-        background-color: #ffffff;
-    }
-
-    .block-container input[type="text"]:focus,
-    .block-container input[type="number"]:focus,
-    .block-container select:focus {
-        outline: none;
-        border-color: #0071e3;
-        box-shadow: 0 0 5px rgba(0, 113, 227, 0.3);
-    }
-
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
 # Load model with caching
 @st.cache(allow_output_mutation=True)
