@@ -5,7 +5,7 @@ import tensorflow as tf
 
 # Set page configuration
 st.set_page_config(
-    page_title="Weather Predictor JED",
+    page_title="Weather Predictor",
     layout="centered",
     initial_sidebar_state="expanded"
 )
@@ -22,7 +22,7 @@ def load_model():
 
 # Main function
 def main():
-    st.title("Weather Predictor")
+    st.title("Weather Predictor JED CARLO")
     model = load_model()
     
     if model is None:
