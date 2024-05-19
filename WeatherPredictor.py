@@ -39,14 +39,14 @@ if model is None:
     img_array = img_array[np.newaxis, ...]  # Add batch dimension
     img_array = img_array / 255.0  # Normalize to [0, 1] range
 
-else:
-    image = Image.open(file)
-    st.image(image, use_column_width=True)
-    prediction = import_and_predict(image, model)
-    class_labels = ['Cloudy', 'Rain', 'Shine', 'Sunrise']
-    predicted_class_index = np.argmax(prediction)
-    predicted_class_label = class_labels[predicted_class_index]
-    prediction = model.predict(img_array)  # Example prediction
+    else:
+        image = Image.open(file)
+        st.image(image, use_column_width=True)
+        prediction = import_and_predict(image, model)
+        class_labels = ['Cloudy', 'Rain', 'Shine', 'Sunrise']
+        predicted_class_index = np.argmax(prediction)
+        predicted_class_label = class_labels[predicted_class_index]
+        prediction = model.predict(img_array)  # Example prediction
 
     return prediction
 
