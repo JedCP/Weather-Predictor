@@ -28,6 +28,7 @@ def load_model():
 model = load_model()
 
 st.title("Weather Predictor")
+st.write("Pernecita, Jed Carlo | Garcia, Christian.")
 st.write("Upload an image to classify the weather conditions.")
 uploaded_file = st.file_uploader("Upload Image", type=["jpg", "jpeg", "png"])
 
