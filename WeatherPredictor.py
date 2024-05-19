@@ -15,6 +15,7 @@ st.markdown(
     </style>
     ,
     unsafe_allow_html=True
+)
 # Set page configuration
 st.set_page_config(
     page_title="Weather Classification Proficiency Test",
