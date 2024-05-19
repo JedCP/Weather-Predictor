@@ -32,7 +32,10 @@ def import_and_predict(image_data, model):
 
     try:
         prediction = model.predict(img_array)
-        return prediction
+        class_labels = ['Cloudy', 'Rain', 'Shine', 'Sunrise']
+        predicted_class_index = np.argmax(prediction)
+        predicted_class_label = class_labels[predicted_class_index]
+        return predicted_class_label
     except Exception as e:
         st.error(f"Error making prediction: {e}")
         return None
@@ -57,11 +60,7 @@ def main():
             with st.spinner('Predicting...'):
                 prediction = import_and_predict(image, model)
                 if prediction is not None:
-                    class_labels = ['Cloudy', 'Rain', 'Shine', 'Sunrise']
-                    predicted_class_index = np.argmax(prediction)
-                    predicted_class_label = class_labels[predicted_class_index]
-
-                    st.success(f'Prediction: {predicted_class_label}')
+                    st.success(f'Prediction: {prediction}')
 
 if __name__ == '__main__':
     main()
