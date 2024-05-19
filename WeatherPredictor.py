@@ -38,5 +38,5 @@ def main():
         predictions = model.predict(img_array)
         st.write(predictions)
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     main()
