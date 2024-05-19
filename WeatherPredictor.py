@@ -17,6 +17,8 @@ def load_model():
         model = tf.keras.models.load_model("model_Weather.h5")
         st.write("Model loaded successfully")
         return model
+        
+model = load_model()
     
 st.title("Weather Predictor")
 st.write("Upload an image to classify the weather conditions.")
