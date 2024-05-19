@@ -14,7 +14,7 @@ st.set_page_config(
 @st.cache(allow_output_mutation=True)
 def load_model():
     try:
-        model = tf.keras.models.load_model("model_Weathers.h5")
+        model = tf.keras.models.load_model("model_Weathers.hdf5")
         st.write("Model loaded successfully")
         return model
     except Exception as e:
