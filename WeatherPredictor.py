@@ -24,7 +24,7 @@ st.markdown(
     }
 
     .stApp {
-        max-width: 12px;
+        max-width: 1.1px;
         padding: 1rem;
     }
 
