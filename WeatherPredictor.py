@@ -15,6 +15,7 @@ st.set_page_config(
 def load_model():
     try:
         model = tf.keras.models.load_model("model_Weather.h5")
+        st.write("Model loaded successfully")
         return model
     except Exception as e:
         st.error(f"Error loading model: {e}")
@@ -22,6 +23,7 @@ def load_model():
 
 def import_and_predict(image_data, model):
     if model is None:
+        st.error("Model is not loaded.")
         return None
     
     size = (150, 150)
@@ -35,6 +37,7 @@ def import_and_predict(image_data, model):
         class_labels = ['Cloudy', 'Rain', 'Shine', 'Sunrise']
         predicted_class_index = np.argmax(prediction)
         predicted_class_label = class_labels[predicted_class_index]
+        st.write(f'Prediction made: {predicted_class_label}')
         return predicted_class_label
     except Exception as e:
         st.error(f"Error making prediction: {e}")
