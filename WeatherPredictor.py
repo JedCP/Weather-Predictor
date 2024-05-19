@@ -13,13 +13,20 @@ st.set_page_config(
 # Load model with caching
 @st.cache(allow_output_mutation=True)
 def load_model():
-    model = tf.keras.models.load_model("model_Weather.h5")
-    return model
+    try:
+        model = tf.keras.models.load_model("model_Weather.h5")
+        return model
+    except Exception as e:
+        st.error(f"Error loading model: {e}")
+        return None
 
 # Main function
 def main():
     st.title("Weather Predictor")
     model = load_model()
+    
+    if model is None:
+        st.stop()
 
     uploaded_file = st.file_uploader("Choose an image...", type="jpg")
 
@@ -30,13 +37,16 @@ def main():
         st.write("Classifying...")
 
         # Preprocess the image
-        image = ImageOps.fit(image, (150, 150), Image.ANTIALIAS)
+        image = ImageOps.fit(image, (150, 150), Image.LANCZOS)
         img_array = np.asarray(image)
         img_array = np.expand_dims(img_array, axis=0)
 
         # Predict the class of the image
-        predictions = model.predict(img_array)
-        st.write(predictions)
+        try:
+            predictions = model.predict(img_array)
+            st.write(predictions)
+        except Exception as e:
+            st.error(f"Error making prediction: {e}")
 
 if __name__ == '__main__':
     main()
