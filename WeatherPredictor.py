@@ -9,6 +9,22 @@ st.set_page_config(
     layout="centered",
     initial_sidebar_state="expanded"
 )
+
+
+# Add custom CSS styles
+st.markdown(
+    """
+    <style>
+    body {
+        background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fstock.adobe.com%2Fsearch%3Fk%3D%2522weather%2Bbackground%2522&psig=AOvVaw28IvtdVcu-BLQbKY3n3PzX&ust=1716216432559000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNi70Mr6mYYDFQAAAAAdAAAAABAD');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 # Load model with caching
 @st.cache(allow_output_mutation=True)
 def load_model():
